@@ -1,0 +1,10 @@
+To-Dos
+- Figure out hosting
+- Section Splits
+- Full Name Mode
+- CSS
+
+Bugs
+- If no image, doesn't change
+
+Questions
