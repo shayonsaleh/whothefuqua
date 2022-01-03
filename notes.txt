@@ -1,8 +1,12 @@
 To-Dos
-- Figure out hosting
+- Figure out hosting - DONE (Github Pages)
+- Skip - Incorrect Answer - DONE
 - Section Splits
 - Full Name Mode
 - CSS
+- End Game
+- Refactor
+- Clean up console
 
 Bugs
 - If no image, doesn't change

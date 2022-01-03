@@ -1,11 +1,12 @@
 let dataDiv = document.getElementById('data')
 let photoImg = document.getElementById('photo')
 let scoreP = document.getElementById('score')
+let consoleText = document.getElementById('console')
 
-dataStore = []
-members = []
-currMember = []
-random = -1
+let dataStore = []
+let members = []
+let currMember = []
+let random = -1
 
 score = 0
 
@@ -39,7 +40,8 @@ function nextPerson(members) {
 
 document.getElementById('fname').addEventListener("keyup", function(evt){
     if(this.value == currMember.givenname || this.value == currMember.nickname){
-        console.log('good job!')
+        // console.log('good job!')
+        consoleText.innerHTML = 'Console: Good job!'
         //increase score
         score += 1
         scoreP.innerHTML = `Score: ${score}`
@@ -60,4 +62,26 @@ document.getElementById('fname').addEventListener("keyup", function(evt){
         // dataDiv.innerHTML += `<p> ${currMember.sn} </p>`
     }
     console.log(this.value)
+})
+
+document.getElementById('fname').addEventListener("keypress", function(evt){
+    if (evt.key === 'Enter'){
+        evt.preventDefault()
+        // console.log('oops, that was ' + currMember.givenname)
+        consoleText.innerHTML = 'Console: oops, that was ' + currMember.givenname
+        if (currMember.nickname) {
+            consoleText.innerHTML += ' (Also goes by ' + currMember.nickname + ')'
+        }
+        //clear page
+        this.value = ''
+        dataDiv.innerHTML = ''
+
+        //delete correct person
+        // console.log(members)
+        members.splice(random, 1)
+        // // console.log(members.length)
+
+        // //pick next person
+        nextPerson(members)
+    }
 })
