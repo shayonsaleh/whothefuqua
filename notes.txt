@@ -1,14 +1,14 @@
 To-Dos
 - Figure out hosting - DONE (Github Pages)
 - Skip - Incorrect Answer - DONE
+- End Game - DONE
 - Section Splits
 - Full Name Mode
 - CSS
-- End Game
 - Refactor
 - Clean up console
 
 Bugs
-- If no image, doesn't change
+- If no image, doesn't change - DONE
 
 Questions
