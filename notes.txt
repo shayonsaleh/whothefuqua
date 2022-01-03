@@ -2,13 +2,16 @@ To-Dos
 - Figure out hosting - DONE (Github Pages)
 - Skip - Incorrect Answer - DONE
 - End Game - DONE
-- Section Splits
+- Section Splits - DONE
 - Full Name Mode
 - CSS
 - Refactor
-- Clean up console
+- Clean up console - DONE
 
 Bugs
 - If no image, doesn't change - DONE
+
+Ideas
+- Timing
 
 Questions
