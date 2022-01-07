@@ -12,6 +12,7 @@ To-Dos
 
 Bugs
 - If no image, doesn't change - DONE
+- Unchecking Full Name Mode Doesn't Work - DONE
 
 Ideas
 - Timing

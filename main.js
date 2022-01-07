@@ -5,6 +5,7 @@ let consoleText = document.getElementById('console')
 let selectSectionElem = document.getElementById('sections')
 let namefield = document.getElementById('fname')
 let fullNameBoxElem = document.getElementById('fullNameBox')
+let fnameLabelElem = document.getElementById('fnameLabel')
 
 let dataStore = []
 let members = []
@@ -152,6 +153,9 @@ selectSectionElem.addEventListener('change', (evt) => {
 })
 
 fullNameBoxElem.addEventListener('change', (evt) => {
-    fullNameMode = fullNameBoxElem.value
+    fullNameMode = fullNameBoxElem.checked
+    fnameLabelElem.innerHTML = fullNameMode ? 
+        'Full Name (Press <kbd>Enter</kbd> to Skip):' : 
+        'First Name (Press <kbd>Enter</kbd> to Skip):'
     reset()
 })
