@@ -129,9 +129,9 @@ document.getElementById('fname').addEventListener("keyup", function(evt){
 document.getElementById('fname').addEventListener("keypress", function(evt){
     if (evt.key === 'Enter'){
         evt.preventDefault()
-        let nameStr = fullNameMode ? currMember.cn : (currMember.nickname | currMember.givenname)
+        let nameStr = fullNameMode ? currMember.cn : (currMember.givenname || currMember.nickname)
         consoleText.innerHTML = 'Console: oops, that was ' + nameStr
-        if (!fullNameMode) {
+        if (!fullNameMode && currMember.nickname && currMember.nickname != currMember.givenname) {
             consoleText.innerHTML += ' (Also goes by ' + currMember.nickname + ')'
         }
         //clear page
