@@ -4,11 +4,13 @@ let scoreP = document.getElementById('score')
 let consoleText = document.getElementById('console')
 let selectSectionElem = document.getElementById('sections')
 let namefield = document.getElementById('fname')
+let fullNameBoxElem = document.getElementById('fullNameBox')
 
 let dataStore = []
 let members = []
 let currMember = []
 let random = -1
+let fullNameMode = false
 
 score = 0
 
@@ -38,7 +40,8 @@ function reset(){
     clearPage()
     clearScore()
     namefield.disabled = false
-    
+    dataDiv.hidden = true
+
     fetch(currURL)
     .then(res => res.json())
     .then(data => {
@@ -53,6 +56,13 @@ document.addEventListener("DOMContentLoaded", function(){
     reset()
 })
 
+function isNameMatching(member, input){
+    if (!fullNameMode){
+        return input == currMember.givenname || input == currMember.nickname
+    } 
+    return input == currMember.cn
+}
+
 function nextPerson(members) {
     if (members.length == 0){
         consoleText.innerHTML = 'Console: Game Over'
@@ -63,7 +73,7 @@ function nextPerson(members) {
         // members = dataStore.theMembers
         random = Math.floor(Math.random() * members.length)
         currMember = members[random]
-
+        console.log(currMember)
         // skip people with no photo
         while (!currMember.largejpegphoto){
             members.splice(random, 1)
@@ -71,7 +81,7 @@ function nextPerson(members) {
             currMember = members[random]
         }
         // dataDiv.innerHTML += `<p> ${random} </p>`
-        // dataDiv.innerHTML += `<p> ${currMember.cn} </p>`
+        dataDiv.innerHTML += `<p> ${currMember.cn} </p>`
         dataDiv.innerHTML += `<p> ${currMember.givenname} </p>`
         // dataDiv.innerHTML += `<p> ${currMember.gradyear} </p>`
         if(currMember.largejpegphoto){
@@ -85,10 +95,15 @@ function nextPerson(members) {
 }
 
 document.getElementById('fname').addEventListener("keyup", function(evt){
-    if(this.value == currMember.givenname || this.value == currMember.nickname){
+    // if(this.value == currMember.givenname || this.value == currMember.nickname){
+    if(isNameMatching(currMember, this.value)){
         consoleText.innerHTML = 'Console: Good job!'
         //increase score
-        score += 1
+        if(fullNameMode) {
+            score += 2
+        } else {
+            score += 1
+        }
         scoreP.innerHTML = `Score: ${score}`
         
         //clear page
@@ -106,13 +121,17 @@ document.getElementById('fname').addEventListener("keyup", function(evt){
         // dataDiv.innerHTML += `<p> ${currMember.nickname} </p>`
         // dataDiv.innerHTML += `<p> ${currMember.sn} </p>`
     }
+    if(this.value == 'debug'){
+        dataDiv.hidden = false
+    }
 })
 
 document.getElementById('fname').addEventListener("keypress", function(evt){
     if (evt.key === 'Enter'){
         evt.preventDefault()
-        consoleText.innerHTML = 'Console: oops, that was ' + currMember.givenname
-        if (currMember.nickname) {
+        let nameStr = fullNameMode ? currMember.cn : (currMember.nickname | currMember.givenname)
+        consoleText.innerHTML = 'Console: oops, that was ' + nameStr
+        if (!fullNameMode) {
             consoleText.innerHTML += ' (Also goes by ' + currMember.nickname + ')'
         }
         //clear page
@@ -128,7 +147,12 @@ document.getElementById('fname').addEventListener("keypress", function(evt){
 })
 
 selectSectionElem.addEventListener('change', (evt) => {
-    console.log(evt)
+    // console.log(evt)
     currURL = urls[evt.target.selectedIndex]
+    reset()
+})
+
+fullNameBoxElem.addEventListener('change', (evt) => {
+    fullNameMode = fullNameBoxElem.value
     reset()
 })

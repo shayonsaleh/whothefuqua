@@ -3,7 +3,9 @@ To-Dos
 - Skip - Incorrect Answer - DONE
 - End Game - DONE
 - Section Splits - DONE
-- Full Name Mode
+- Full Name Mode - DONE
+- Number Left Counter
+- P/HP/SP Final Rating
 - CSS
 - Refactor
 - Clean up console - DONE
@@ -13,5 +15,6 @@ Bugs
 
 Ideas
 - Timing
+- Leaderboard
 
 Questions
