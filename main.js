@@ -28,7 +28,7 @@ let currURL = urls[0]
 function clearPage(){
     document.getElementById('fname').value = ''
     dataDiv.innerHTML = ''
-    consoleText.innerText = 'Console: '
+    consoleText.innerText = 'Console: New Game!'
 }
 
 function clearScore(){
@@ -69,17 +69,17 @@ function nextPerson(members) {
         namefield.disabled = true
         photoImg.src = ''
     } else {
-        // dataStore = data
-        // members = dataStore.theMembers
         random = Math.floor(Math.random() * members.length)
         currMember = members[random]
         console.log(currMember)
+
         // skip people with no photo
         while (!currMember.largejpegphoto){
             members.splice(random, 1)
             random = Math.floor(Math.random() * members.length)   
             currMember = members[random]
         }
+
         // dataDiv.innerHTML += `<p> ${random} </p>`
         dataDiv.innerHTML += `<p> ${currMember.cn} </p>`
         dataDiv.innerHTML += `<p> ${currMember.givenname} </p>`
@@ -95,7 +95,6 @@ function nextPerson(members) {
 }
 
 document.getElementById('fname').addEventListener("keyup", function(evt){
-    // if(this.value == currMember.givenname || this.value == currMember.nickname){
     if(isNameMatching(currMember, this.value)){
         consoleText.innerHTML = 'Console: Good job!'
         //increase score
