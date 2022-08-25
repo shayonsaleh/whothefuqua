@@ -22,7 +22,14 @@ urls = [
     'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1621973936894%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
     'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1621974251030%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
     'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1621974382945%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
-    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1621974562831%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS'
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1621974562831%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1654007623656%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1659471228132%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1659473120001%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1659531766226%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1659531911058%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1659532016476%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS',
+    'https://go.fuqua.duke.edu/angularws/rest/fuqua/directory/department/dn/gid%3D1659532115082%2Cou%3DFuquaGroups%2Co%3DFuqua%2Cc%3DUS'
 ]
 let currURL = urls[0]
 
@@ -147,7 +154,7 @@ document.getElementById('fname').addEventListener("keypress", function(evt){
 })
 
 selectSectionElem.addEventListener('change', (evt) => {
-    // console.log(evt)
+    console.log(evt)
     currURL = urls[evt.target.selectedIndex]
     reset()
 })

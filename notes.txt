@@ -1,14 +1,21 @@
+
 To-Dos
 - Figure out hosting - DONE (Github Pages)
 - Skip - Incorrect Answer - DONE
 - End Game - DONE
 - Section Splits - DONE
 - Full Name Mode - DONE
+- Updated w/ Class of 2024 - DONE
+- Game Over
+-- Play Again Button
+-- Remove Textbox and Label
 - Number Left Counter
 - P/HP/SP Final Rating
 - CSS
 - Refactor
 - Clean up console - DONE
+- Update new game message with how game works
+- Incorporate EMA boards?
 
 Bugs
 - If no image, doesn't change - DONE
